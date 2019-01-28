@@ -1,3 +1,17 @@
-<p>
-  add-or-update-item works!
-</p>
+<div>
+    <h2 *ngIf="!itemInfo || itemInfo.id === undefined">Add record</h2>
+<h2 *ngIf="itemInfo && itemInfo.id !== undefined">Update record (ID: )</h2>
+    <form>
+        <div class="form-group">
+            <label for="model-input">Brand: </label>
+            <input type="string" id="model-input" [(ngModel)]="itemInfo.brand" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="model-input">Model: </label>
+            <input type="string" id="model-input" [(ngModel)]="itemInfo.model" class="form-control" />
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="addOrUpdatGridRecord($event);">Save</button>
+
+    </form>
+   </div>

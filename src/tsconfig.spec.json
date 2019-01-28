@@ -5,7 +5,9 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
   },
   "files": [
     "test.ts",

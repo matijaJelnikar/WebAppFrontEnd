@@ -8,8 +8,8 @@
 </thead>
 <tbody>
     <tr *ngFor="let itemInfo of ItemsData"> 
-        <td>{{ itemInfo.Brand | string:'' }}</td>
-        <td>{{ itemInfo.Model | string: '' }}</td>
+        <td>{{ itemInfo.brand }}</td>
+        <td>{{ itemInfo.model }}</td>
         <td>
             <a href="#" (click)="editRecord(this)">Edit</a>
             <a href="#" (click)="deleteRecord(this)">Delete</a>

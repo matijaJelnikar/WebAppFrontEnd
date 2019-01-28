@@ -1,3 +1,10 @@
-<p>
-  home works!
-</p>
+<div>
+  <div class="col-md-4">
+      <app-add-or-update-item (itemCreated)="createOrUpdateItem($event)" [itemInfo]="currentItem"></app-add-or-update-item>
+  </div>
+  <div class="col-md-8">
+      <app-grid-items [itemsData]="itemsData" (editClicked)="editClicked($event)" (newClicked)="newClicked($event)" (recordDeleted)="deleteClicked($event)"></app-grid-items>
+  </div>
+</div>
+
+

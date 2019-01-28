@@ -11,6 +11,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListInteracionService } from './list-interaction.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+import * as _ from 'lodash';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
  
@@ -26,7 +29,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ListInteracionService    
