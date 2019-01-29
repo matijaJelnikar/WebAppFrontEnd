@@ -4,14 +4,14 @@
     <form>
         <div class="form-group">
             <label for="model-input">Brand: </label>
-            <input type="string" id="model-input" [(ngModel)]="itemInfo.brand" class="form-control" />
+            <input name="brand" type="string" id="model-input" [(ngModel)]="itemInfo.brand" class="form-control" />
         </div>
         <div class="form-group">
             <label for="model-input">Model: </label>
-            <input type="string" id="model-input" [(ngModel)]="itemInfo.model" class="form-control" />
+            <input name="model" type="string" id="model-input" [(ngModel)]="itemInfo.model" class="form-control" />
         </div>
 
-        <button type="button" class="btn btn-primary" (click)="addOrUpdatGridRecord($event);">Save</button>
+        <button type="button" class="btn btn-primary" (click)="addOrUpdateItemRecord($event);">Save</button>
 
     </form>
    </div>

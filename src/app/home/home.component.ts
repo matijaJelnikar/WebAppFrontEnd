@@ -8,34 +8,34 @@ import * as _ from 'lodash';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public itemsData: Array<any>;
+  public itemsData: Array<any> = [];
   public currentItem: any;
 
   
   constructor ( private listInteracionservice: ListInteracionService) {
     listInteracionservice.get().subscribe((data: any) => this.itemsData = data);
-    // this.currentItem = this.setiniti();
+     this.currentItem = this.setInitialValuesForItemsData();
   }
   private setInitialValuesForItemsData () {
     return {
-      id: undefined,
-      model: '',
-      brand: ''      
+      id: 1,
+      model: 'test',
+      brand: 'test'      
     }
   }
 
-public createOrUpdateItem = function(item: any) {
+public createOrUpdateItem (item: any) {
   
     let itemWithId;
     itemWithId = _.find(this.itemsData, (el => el.id === item.id));
 
     if (itemWithId) {
       const updateIndex = _.findIndex(this.itemsData, {id: itemWithId.id});
-      this.workoutService.update(item).subscribe(
+      this.listInteracionservice.update(item).subscribe(
         itemRecord =>  this.itemsData.splice(updateIndex, 1, item)
       );
     } else {
-      this.workoutService.add(item).subscribe(
+      this.listInteracionservice.add(item).subscribe(
         itemRecord => this.itemsData.push(item)
       );
     }

@@ -7,7 +7,8 @@ export class ListInteracionService {
   private accessPointUrl: string = 'https://localhost:44362/api/Cars';
 
   constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
+    //; charset=utf-8
+    this.headers = new HttpHeaders({'Content-Type': 'application/json'});
   }
 
   public get() {
@@ -16,7 +17,7 @@ export class ListInteracionService {
   }
 
   public add(payload) {
-    return this.http.post(this.accessPointUrl, payload, {headers: this.headers});
+    return this.http.post(this.accessPointUrl, payload, {headers: this.headers, withCredentials: true});
   }
 
   public remove(payload) {
