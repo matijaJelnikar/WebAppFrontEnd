@@ -8,19 +8,19 @@ import * as _ from 'lodash';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public itemsData: Array<any> = [];
+  public itemsData: Array<any>;
   public currentItem: any;
 
   
   constructor ( private listInteracionservice: ListInteracionService) {
     listInteracionservice.get().subscribe((data: any) => this.itemsData = data);
-     this.currentItem = this.setInitialValuesForItemsData();
+   // this.currentItem = this.setInitialValuesForItemsData();
   }
   private setInitialValuesForItemsData () {
     return {
-      id: 1,
-      model: 'test',
-      brand: 'test'      
+      id: undefined,
+      model: '',
+      brand: ''      
     }
   }
 
@@ -40,8 +40,23 @@ public createOrUpdateItem (item: any) {
       );
     }
 
-    this.currentItem = this.setInitialValuesForItemsData();
+    //this.currentItem = this.setInitialValuesForItemsData();
   };
+
+  public editClicked = function(record) {
+    this.currentItem = record;
+  };
+
+  public newClicked = function() {
+    this.currentItem = this.setInitialValuesForItemsData(); 
+  };
+
+  public deleteClicked(record) {   
+    const deleteIndex = _.findIndex(this.itemsData, {id: record.id});
+    this.listInteracionservice.remove(record).subscribe(
+      result => this.itemsData.splice(deleteIndex, 1)
+    );
+  }
 
   ngOnInit() {
   }

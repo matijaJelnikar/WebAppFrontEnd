@@ -1,4 +1,4 @@
-<a href="#" id="new-button">New</a>
+<a href="#" id="new-button" (click)="newRecord()">New</a>
 <table>
 <thead>
     <tr>
@@ -7,12 +7,16 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let itemInfo of ItemsData"> 
-        <td>{{ itemInfo.brand }}</td>
-        <td>{{ itemInfo.model }}</td>
+    <tr *ngFor="let itemInfo of itemsData">
+        <td>{{itemInfo.brand}}</td>
+        <td>{{itemInfo.model}}</td>
         <td>
-            <a href="#" (click)="editRecord(this)">Edit</a>
-            <a href="#" (click)="deleteRecord(this)">Delete</a>
+            <a href="#" (click)="editRecord(itemInfo)">Edit</a>
+            <a href="#" (click)="deleteRecord(itemInfo)">Delete</a>
+            
+            <!-- <a href="#" ng-click="editRecord($event)">Edit</a>
+            <a href="#" ng-click="deleteRecord($event)">Delete</a> -->
+            
         </td>
     </tr>
 </tbody>

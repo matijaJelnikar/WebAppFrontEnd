@@ -34,19 +34,4 @@ export class AddOrUpdateItemComponent implements OnInit {
     this.itemCreated.emit(this.itemInfo);
     this.clearItemInfo();
   };
-
-  public editClicked = function(record) {
-    this.currentItem = record;
-  };
-
-  public newClicked = function() {
-    this.currentItem= this.setInitialValuesForItemData(); 
-  };
-
-  public deleteClicked(record) {
-    const deleteIndex =  _.findIndex(this.itemInfo, {id: record.id});
-    this.itemInfo.remove(record).subscribe(
-      result => this.itemInfo.splice(deleteIndex, 1)
-    );
-  }
 }
